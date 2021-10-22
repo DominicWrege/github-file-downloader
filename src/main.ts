@@ -4,7 +4,7 @@ function main() {
     insertLink(link);
 }
 
-function createLink(): HTMLAnchorElement | null {
+function createLink(): HTMLAnchorElement {
 
     const link: HTMLAnchorElement = document.createElement("a");
     // = ["", , "d-none", "d-md-block"];
@@ -12,7 +12,7 @@ function createLink(): HTMLAnchorElement | null {
     link.classList.add("mr-2");
     link.classList.add("d-md-block");
 
-    link.textContent = "Download";
+    link.textContent = "Download file";
     const pathname = window.location.pathname;
     link.href = pathname;
     const filename = window.location.pathname.split("/").pop();
@@ -24,12 +24,9 @@ function createLink(): HTMLAnchorElement | null {
 
 }
 
-function insertLink(link: HTMLAnchorElement | null): void {
+function insertLink(link: HTMLAnchorElement): void {
     let blobPath = document.querySelector("div > h2#blob-path");
-
-    if (link) {
-        blobPath?.after(link);
-    }
+    blobPath?.after(link);
 }
 
 //--------- main --------- 
