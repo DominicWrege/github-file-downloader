@@ -1,0 +1,27 @@
+{
+	"name": "ilias-review-improver",
+	"version": "1.0.4",
+	"description": "Simple Ilias Review Improver",
+	"main": "main.ts",
+	"author": "Dominic Wrege",
+	"license": "MIT",
+	"devDependencies": {
+		"ts-loader": "^9.2.5",
+		"typescript": "^4.3.5",
+		"web-ext": "6.2.0",
+		"webpack": "^5.49.0",
+		"webpack-cli": "^4.7.2"
+	},
+	"scripts": {
+		"start": "npm run webpack:dev && web-ext run -c config.js",
+		"build": "npm run webpack:build && web-ext lint -c config.js && web-ext build -c config.js -o",
+		"lint": "web-ext lint -c config.js",
+		"docs": "web-ext doc",
+		"webpack:build": "webpack-cli",
+		"webpack:dev": "mode=development webpack-cli",
+		"webpack:watch": "mode=development webpack-cli --watch &"
+	},
+	"webExt": {
+		"artifactsDir": "build"
+	}
+}

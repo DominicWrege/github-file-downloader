@@ -1,0 +1,18 @@
+{
+	"manifest_version": 2,
+	"name": "Github Just Download",
+	"version": "1.0.0",
+	"description": "placeholder",
+	"icons": {
+		"32": "icons/icon32.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://github.com/*/blob/*"],
+			"js": ["dist/main.bundle.js"]
+		}
+	],
+	"permissions": ["https://github.com/*/blob/*"]
+}
